@@ -15,7 +15,7 @@ public class BindingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Fresco.initialize(this);
-        final ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         final Image image = new Image("test","https://pbs.twimg.com/profile_images/638751551457103872/KN-NzuRl.png");
         binding.setImage(image);
 
