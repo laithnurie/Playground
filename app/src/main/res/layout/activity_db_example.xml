@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="android.databinding.BaseObservable" />
         <variable name="image" type="com.laithlab.playground.BindingExample.Image" />
     </data>
 
@@ -12,9 +13,10 @@
         android:id="@+id/activity_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.laithlab.playground.BindingExample.BindingActivity">
+        tools:context="com.laithlab.playground.BindingExample.DBExampleActivity">
 
         <TextView
+            android:id="@+id/imageTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"

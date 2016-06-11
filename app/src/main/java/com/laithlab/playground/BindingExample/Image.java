@@ -9,22 +9,27 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.laithlab.playground.BR;
 
 public class Image extends BaseObservable {
-    private String title;
+    @Bindable
     private String url;
-
     @Bindable
-    public String getUrl() {
-        return this.url;
-    }
-
-    @Bindable
-    public String getTitle() {
-        return this.title;
-    }
+    private String title;
 
     public Image(String title, String url) {
         this.title = title;
         this.url = url;
+    }
+
+    public String getUrl() {
+        return this.url;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+        notifyPropertyChanged(BR.url);
     }
 
     public void setTitle(String title) {
