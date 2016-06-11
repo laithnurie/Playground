@@ -8,6 +8,7 @@ import com.facebook.drawee.backends.pipeline.Fresco;
 import com.laithlab.playground.DaggerExample.dagger.component.DaggerPlaygroundAppComponent;
 import com.laithlab.playground.DaggerExample.dagger.component.PlaygroundAppComponent;
 import com.laithlab.playground.DaggerExample.dagger.module.PlaygroundModule;
+import com.laithlab.playground.DaggerExample.dagger.module.PrefModule;
 
 import javax.inject.Inject;
 
@@ -26,6 +27,7 @@ public class PlaygroundApp extends Application {
         Fresco.initialize(this);
         playgroundAppComponent = DaggerPlaygroundAppComponent.builder()
                 .playgroundModule(new PlaygroundModule(this))
+                .prefModule(new PrefModule())
                 .build();
         playgroundAppComponent.inject(this);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -38,7 +40,7 @@ public class PlaygroundApp extends Application {
         return ((PlaygroundApp) context.getApplicationContext()).playgroundAppComponent;
     }
 
-    public int getCurrentLaunchCount() {
+    private int getCurrentLaunchCount() {
         return sharedPreferences.getInt(LAUNCH_COUNT_PREF, 0);
     }
 }
