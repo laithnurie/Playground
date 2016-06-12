@@ -9,6 +9,8 @@ import com.laithlab.playground.DaggerExample.dagger.module.PlaygroundModule;
 import com.laithlab.playground.DaggerExample.dagger.module.PrefModule;
 import com.laithlab.playground.PlaygroundApp;
 
+import javax.inject.Named;
+
 import dagger.Component;
 
 @PerApp
@@ -22,5 +24,10 @@ public interface PlaygroundAppComponent {
     void inject(PlaygroundApp playgroundApp);
     void inject(DaggerMainActivity activity);
     Application app();
-    SharedPreferences prefs();
+
+    @Named("default")
+    SharedPreferences defaultPrefs();
+
+    @Named("secret")
+    SharedPreferences secretPrefs();
 }

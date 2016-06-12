@@ -11,12 +11,13 @@ import com.laithlab.playground.DaggerExample.dagger.module.PlaygroundModule;
 import com.laithlab.playground.DaggerExample.dagger.module.PrefModule;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 public class PlaygroundApp extends Application {
 
     public static String LAUNCH_COUNT_PREF = "launch_count";
 
-    @Inject
+    @Inject @Named("secret")
     SharedPreferences sharedPreferences;
 
     private PlaygroundAppComponent playgroundAppComponent;

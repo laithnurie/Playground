@@ -11,6 +11,7 @@ import com.laithlab.playground.PlaygroundApp;
 import com.laithlab.playground.R;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import static com.laithlab.playground.PlaygroundApp.LAUNCH_COUNT_PREF;
 
@@ -23,7 +24,7 @@ public class DaggerMainActivity extends AppCompatActivity {
     * */
 
     //LINE A
-    @Inject
+    @Inject @Named("secret")
     SharedPreferences sharedPreferences;
 
     @Override
@@ -38,7 +39,7 @@ public class DaggerMainActivity extends AppCompatActivity {
 
     private int getCurrentLaunchCount() {
 //        LINE C
-//        return PlaygroundApp.getAppComponent(this).prefs().getInt(LAUNCH_COUNT_PREF, 0);
+//        return PlaygroundApp.getAppComponent(this).secretPrefs().getInt(LAUNCH_COUNT_PREF, 0);
         return sharedPreferences.getInt(LAUNCH_COUNT_PREF, 0);
     }
 }
